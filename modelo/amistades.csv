@@ -1,0 +1,5 @@
+arista,origen_id,destino_id
+e1,P01,P02
+e2,P01,P03
+e3,P02,P04
+e4,P03,P04
