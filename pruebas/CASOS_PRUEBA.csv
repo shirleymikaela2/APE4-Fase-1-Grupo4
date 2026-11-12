@@ -1,0 +1,19 @@
+﻿id,tipo,entrada_o_accion,resultado_esperado,trazabilidad
+CP01,Consulta,"existeRelacion(P01,P02)",verdadero,"R3, Q1"
+CP02,Consulta,"existeRelacion(P01,P04)",falso,Q1
+CP03,Consulta,vecinos(P01),"[P02,P03] como conjunto",Q2
+CP04,Consulta,vecinos(P05),conjunto vacío,Q2
+CP05,Consulta,grado(P05),0,Q3
+CP06,Consulta,grado(P04),2,Q3
+CP07,Consulta,"existeRelacion(P02,P01)",verdadero por reciprocidad,"R3,Q1"
+CP08,Validación,"registrarPersona(P01, Ana) otra vez",rechazar ID duplicado; conservar P01,R6
+CP09,Validación,"registrarPersona(P06, """")",rechazar nombre vacío,R7
+CP10,Validación,"proponerAmistad(P01,P01)",rechazar lazo,R2
+CP11,Validación,"proponerAmistad(P02,P01)",rechazar duplicado de e1,R4
+CP12,Validación,"proponerAmistad(P01,P99)",rechazar extremo inexistente,R1
+CP13,Validación,"existeRelacion(P99,P01)",error/resultado de validación por ID inexistente,Q4
+CP14,Validación,vecinos(P99),error/resultado de validación por ID inexistente,Q4
+CP15,Integridad,consultar número de vértices,"5, incluida P05 aislada",M1
+CP16,Integridad,consultar número de amistades,4 aristas únicas,M2
+CP17,Integridad,comprobar matriz de adyacencia,"5x5; simétrica; diagonal 0; grados [2,2,2,2,0]",M3
+CP18,Integridad,comprobar matriz de incidencia,5x4; cada columna suma 2; fila P05 en cero,M4
