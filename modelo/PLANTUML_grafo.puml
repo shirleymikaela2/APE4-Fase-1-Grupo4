@@ -1,15 +1,11 @@
 @startuml
 left to right direction
-circle "Ana
-P01" as A
-circle "Bruno
-P02" as B
-circle "Carla
-P03" as C
-circle "Diego
-P04" as D
-circle "Elena
-P05" as E
+circle "Ana\nP01" as A
+circle "Bruno\nP02" as B
+circle "Carla\nP03" as C
+circle "Diego\nP04" as D
+circle "Elena\nP05" as E
+
 A -- B
 A -- C
 B -- D
