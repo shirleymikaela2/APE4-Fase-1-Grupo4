@@ -1,19 +1,19 @@
-﻿id,tipo,entrada_o_accion,resultado_esperado,trazabilidad
-CP01,Consulta,"existeRelacion(P01,P02)",verdadero,"R3, Q1"
-CP02,Consulta,"existeRelacion(P01,P04)",falso,Q1
-CP03,Consulta,vecinos(P01),"[P02,P03] como conjunto",Q2
-CP04,Consulta,vecinos(P05),conjunto vacío,Q2
-CP05,Consulta,grado(P05),0,Q3
-CP06,Consulta,grado(P04),2,Q3
-CP07,Consulta,"existeRelacion(P02,P01)",verdadero por reciprocidad,"R3,Q1"
-CP08,Validación,"registrarPersona(P01, Ana) otra vez",rechazar ID duplicado; conservar P01,R6
-CP09,Validación,"registrarPersona(P06, """")",rechazar nombre vacío,R7
-CP10,Validación,"proponerAmistad(P01,P01)",rechazar lazo,R2
-CP11,Validación,"proponerAmistad(P02,P01)",rechazar duplicado de e1,R4
-CP12,Validación,"proponerAmistad(P01,P99)",rechazar extremo inexistente,R1
-CP13,Validación,"existeRelacion(P99,P01)",error/resultado de validación por ID inexistente,Q4
-CP14,Validación,vecinos(P99),error/resultado de validación por ID inexistente,Q4
-CP15,Integridad,consultar número de vértices,"5, incluida P05 aislada",M1
-CP16,Integridad,consultar número de amistades,4 aristas únicas,M2
-CP17,Integridad,comprobar matriz de adyacencia,"5x5; simétrica; diagonal 0; grados [2,2,2,2,0]",M3
-CP18,Integridad,comprobar matriz de incidencia,5x4; cada columna suma 2; fila P05 en cero,M4
+﻿ID;Tipo;Entrada o Caso;Resultado Esperado;
+CP01;Consulta;existeRelacion(P01; P02);Verdadero (Existe la amistad Ana-Bruno)
+CP02;Consulta;existeRelacion(P01; P04);Falso (No existe relacion directa Ana-Diego)
+CP03;Consulta;vecinos(P01);Retorna {P02; P03} (Bruno y Carla)
+CP04;Consulta;vecinos(P05);Conjunto vacio (Elena esta aislada);
+CP05;Consulta;grado(P05);0 (No tiene aristas incidentes);
+CP06;Consulta;grado(P04);2 (Diego conecta con Bruno y Carla);
+CP07;Consulta;existeRelacion(P02; P01);Verdadero por reciprocidad (Bruno-Ana)
+CP08;Validacion;Registrar persona con ID duplicado (P01; Ana);"Rechazar ID duplicado; conservar el registro original de P01"
+CP09;Validacion;Registrar persona con nombre vacio (P06; );Rechazar nombre vacio o con espacios en blanco
+CP10;Validacion;Proponer amistad consigo mismo (P01; P01);Rechazar lazo (una persona no puede ser amiga de si misma)
+CP11;Validacion;Proponer amistad ya existente (P02; P01);Rechazar duplicado de la arista e1 ya registrada
+CP12;Validacion;Proponer amistad con un extremo inexistente (P01; P99);Rechazar por extremo inexistente en el modelo
+CP13;Validacion;Consultar existencia con ID fantasma (existeRelacion(P99; P01));Error o resultado de validacion por ID inexistente
+CP14;Validacion;Consultar vecinos con ID fantasma (vecinos(P99));Error o resultado de validacion por ID inexistente;
+CP15;Integridad;Consultar numero total de vertices;5; incluyendo formalmente al vertice aislado P05 (Elena)
+CP16;Integridad;Consultar numero total de amistades;4 aristas unicas en el grafo base;
+CP17;Integridad;Comprobar matriz de adyacencia del grafo;"Matriz simetrica de 5x5; diagonal principal en 0; grados de filas [2,2,2,2,0]";
+CP18;Integridad;Comprobar matriz de incidencia del grafo;"Matriz de 5x4; cada columna suma exactamente 2; fila de P05 completamente en ceros";
